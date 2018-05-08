@@ -1,0 +1,87 @@
+书中默认的开发环境是：Windows XP + Qt Creator 2.1.0 + Qt 4.7.2
+
+
+如果读者需要在Linux下进行开发，可以使用下面简单的步骤来搭建环境：
+
+可以到http://www.qter.org/查看图文教程。
+
+（下面以Ubuntu 12.04 为例进行说明）
+
+
+1. 下载软件
+
+到ftp://ftp.qt-project.org/qt/source/ 下载Linux版本的Qt库 qt-everywhere-opensource-src-4.7.2.tar.gz
+
+到ftp://ftp.qt-project.org/qtcreator/ 下载Linux版本的qt-creator-linux-x86-opensource-2.1.0.bin
+
+
+
+2.安装Qt Creator
+
+在终端里为qt-creator-linux-x86-opensource-2.1.0.bin添加可执行权限：
+
+chmod 777 qt-creator-linux-x86-opensource-2.1.0.bin
+
+然后运行该文件：
+
+./qt-creator-linux-x86-opensource-2.1.0.bin
+
+下面就可以按照提示安装了。
+
+
+
+3.安装Qt库
+
+先解压qt-everywhere-opensource-src-4.7.2.tar.gz：
+
+tar -zxvf qt-everywhere-opensource-src-4.7.2.tar.gz
+
+然后进入到解压后的目录，在编译以前先要配置编译环境：
+(这里在新安装的Ubuntu中需要，在其他Linux版本中可能不需要，可以先跳过这一步，如果无法编译，再进行这一步)
+
+sudo apt-get install build-essential
+
+sudo apt-get install libx11-dev libfreetype6-dev libavahi-gobject-dev libSM-dev libXrender-dev libfontconfig-dev libXext-dev
+
+（注意需要在联网状态下才可执行）完成后，输入以下命令：
+
+./configure
+
+根据提示可能要输入 o（字母）然后回车，然后输入 yes 然后回车，完成后输入以下命令：
+
+./make
+
+这个根据电脑的配置，可能需要1到2个小时，完成后，输入：
+
+sudo make install
+
+然后输入系统登录密码，这样就完成了Qt库的编译和安装。
+
+
+
+
+4.关联Qt Creator和Qt库
+
+这个与在Windows下的方法一样，就是在Qt Creator的工具→选项→Qt4 中手动设置Qt版本，然后选择qmake路径即可。
+
+
+
+
+5.源码中出现乱码问题
+
+
+如果查看源码时显示错误：无法使用“UTF-8”编码解码。无法编辑。
+
+
+那么请点击后面的“选择编码”按钮，然后选择 GB2312。
+
+
+
+如果界面上的中文依然显示乱码，那么请将main.cpp文件中的：
+
+QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
+
+更改为：
+
+QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
+

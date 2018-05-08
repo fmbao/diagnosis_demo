@@ -1,0 +1,22 @@
+1.如果查看源码时显示错误：无法使用“UTF-8”编码解码。无法编辑。
+
+
+那么请点击后面的“选择编码”按钮，然后选择 GB2312。
+
+
+
+2.如果界面上的中文依然显示乱码，那么请将main.cpp文件中的：
+
+QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
+
+更改为：
+
+QTextCodec::setCodecForTr(QTextCodec::codecForName("GB2312"));
+ 
+
+
+
+
+
+
+可以到http://www.qter.org查看图文教程。

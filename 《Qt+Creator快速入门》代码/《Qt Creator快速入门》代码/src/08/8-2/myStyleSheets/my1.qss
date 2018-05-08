@@ -1,0 +1,40 @@
+/****************主界面背景*******************/
+QMainWindow{
+        background-image: url(:/image/beijing02.png);/*背景图片*/
+}
+
+/****************按钮部件*******************/
+QPushButton{
+     background-color: rgba(100, 225, 100, 30);/*背景色*/
+     border-style: outset; /*边框样式*/
+     border-width: 4px;  /*边框宽度为4像素*/
+     border-radius: 10px; /*边框圆角半径*/
+     border-color: rgba(255, 225, 255, 30);/*边框颜色*/
+     font: bold 14px;/*字体*/
+         color:rgba(0, 0, 0, 100);/*字体颜色*/
+     padding: 6px; /*填衬*/
+}
+
+QPushButton:hover{ /*鼠标悬停在按钮上时*/
+        background-color:rgba(100,255,100, 100);
+        border-color: rgba(255, 225, 255, 200);
+        color:rgba(0, 0, 0, 200);
+}
+
+QPushButton:pressed { /*按钮被按下时*/
+     background-color:rgba(100,255,100, 200);
+         border-color: rgba(255, 225, 255, 30);
+     border-style: inset;
+        color:rgba(0, 0, 0, 100);
+}
+
+/****************滑块部件*******************/
+
+
+QSlider::handle:horizontal { /*水平滑块的手柄*/
+        image: url(:/image/sliderHandle.png);
+ }
+
+QSlider::sub-page:horizontal { /*水平滑块手柄以前的部分*/
+        border-image: url(:/image/slider.png);/*边框图片*/
+ }
